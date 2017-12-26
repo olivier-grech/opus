@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e75fd6a07524ee4f81b05bf8f91e821, type: 3}
-  m_Name: Backgrounds Dictionnary
+  m_Name: Dictionnary Backgrounds
   m_EditorClassIdentifier: 
   m_Backgrounds:
   - name: day
