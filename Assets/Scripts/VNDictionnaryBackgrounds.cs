@@ -2,7 +2,7 @@
 using System;
 
 [CreateAssetMenu(fileName = "Data", menuName = "VN Backgrounds", order = 2)]
-public class DictionnaryBackgrounds : ScriptableObject
+public class VNDictionnaryBackgrounds : ScriptableObject
 {
     [Serializable]
     public struct Backgrounds
