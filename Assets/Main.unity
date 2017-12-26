@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 396382753}
   - component: {fileID: 396382752}
   m_Layer: 5
-  m_Name: Background Sprite
+  m_Name: Background Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 927847434}
   - component: {fileID: 927847433}
   m_Layer: 5
-  m_Name: Character Sprite
+  m_Name: Character Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1289,8 +1289,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f4705c7b03fdc646906d1f91830ce55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BackgroundSprite: {fileID: 0}
-  m_CharacterSprite: {fileID: 0}
+  m_BackgroundImage: {fileID: 396382752}
+  m_VNBackgroundsDictionnary: {fileID: 11400000, guid: 304a27d9794f0c241a19a48b523c642c,
+    type: 2}
+  m_CharacterImage: {fileID: 927847433}
+  m_VNCharactersDictionnary: {fileID: 11400000, guid: 241b285cfb731c14b80f2475462e73da,
+    type: 2}
 --- !u!4 &2104631652
 Transform:
   m_ObjectHideFlags: 0
