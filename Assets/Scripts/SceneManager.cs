@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SceneManager : MonoBehaviour
 {
-    public static SceneManager instance;
+    [HideInInspector] public static SceneManager instance;
 
     public Image m_BackgroundImage;
     public VNDictionnaryBackgrounds m_VNBackgroundsDictionnary;
@@ -28,7 +28,7 @@ public class SceneManager : MonoBehaviour
         }
 
         // Load characters dictionnary into a "real" dictionnary
-		m_CharactersDictionnary = new Dictionary<string, Sprite[]>();
+        m_CharactersDictionnary = new Dictionary<string, Sprite[]>();
         foreach (VNDictionnaryCharacters.Characters character in m_VNCharactersDictionnary.m_Characters)
         {
             m_CharactersDictionnary.Add(character.name, character.sprites);

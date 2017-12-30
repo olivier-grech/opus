@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class DialogueBoxManager : MonoBehaviour
 {
+    [HideInInspector] public static DialogueBoxManager instance;
+
     public GameObject m_NamePlate;
     private Text m_NamePlateName;
 
@@ -17,6 +19,8 @@ public class DialogueBoxManager : MonoBehaviour
 
     void Awake()
     {
+        instance = this;
+
         m_TextIsScrolling = false;
     }
 
