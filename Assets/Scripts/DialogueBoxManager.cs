@@ -18,7 +18,6 @@ public class DialogueBoxManager : MonoBehaviour
     void Awake()
     {
         m_TextIsScrolling = false;
-
     }
 
     // Use this for initialization
@@ -45,11 +44,17 @@ public class DialogueBoxManager : MonoBehaviour
         int numberOfLettersToDisplayAtOnce;
 
         if (numberOfFramesBetweenLetters == 0)
+        {
             numberOfLettersToDisplayAtOnce = 0;
+        }
         else if (numberOfFramesBetweenLetters < 1)
+        {
             numberOfLettersToDisplayAtOnce = (int)(1.0f / numberOfFramesBetweenLetters);
+        }
         else
+        {
             numberOfLettersToDisplayAtOnce = 1;
+        }
 
         m_TextIsScrolling = true;
         m_TextBoxText.text = "";
@@ -62,14 +67,18 @@ public class DialogueBoxManager : MonoBehaviour
             for (int j = 0; j < Mathf.Max(1, numberOfLettersToDisplayAtOnce); ++j)
             {
                 if (i < charArray.Length)
+                {
                     m_TextBoxText.text += charArray[i];
+                }
                 ++i;
             }
 
             if (numberOfLettersToDisplayAtOnce != 0)
             {
                 for (int j = 0; j < Mathf.Max(1, numberOfFramesBetweenLetters); ++j)
+                {
                     yield return new WaitForFixedUpdate();
+                }
             }
         }
 
@@ -84,6 +93,4 @@ public class DialogueBoxManager : MonoBehaviour
         m_TextIsScrolling = false;
         m_TextBoxText.text = m_CurrentLine;
     }
-
-
 }
