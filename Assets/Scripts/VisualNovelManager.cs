@@ -109,6 +109,16 @@ public class VisualNovelManager : MonoBehaviour
 
                 // Todo: display dialogue
                 break;
+            case "choices":
+                List<string> texts = new List<string>();
+                List<object> lambdas = new List<object>();
+                foreach (XmlNode choiceNode in m_CurrentNode.ChildNodes)
+                {
+                    texts.Add(choiceNode.InnerText);
+                }
+
+                ChoiceManager.instance.displayChoiceButtons(texts, lambdas);
+                break;
             default:
                 break;
 
