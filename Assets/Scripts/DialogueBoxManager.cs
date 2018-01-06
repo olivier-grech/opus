@@ -31,12 +31,12 @@ public class DialogueBoxManager : MonoBehaviour
         m_TextBoxText = m_TextBox.GetComponentInChildren<Text>();
     }
 
-    void ChangeNamePlateName(string name)
+    public void ChangeNamePlateName(string name)
     {
         m_NamePlateName.text = name;
     }
 
-    void DisplayNewLine(string line)
+    public void DisplayNewLine(string line)
     {
         m_CurrentLine = line;
         m_ScrollingTextCoroutine = StartCoroutine(StartScrollingText());
@@ -90,8 +90,13 @@ public class DialogueBoxManager : MonoBehaviour
         yield return null;
     }
 
+    public bool IsTextScrolling()
+    {
+      return m_TextIsScrolling;
+    }
+
     // If the text is still scrolling, instantly display the end of the line
-    void FinishDisplayingLine()
+    public void FinishDisplayingLine()
     {
         StopCoroutine(m_ScrollingTextCoroutine);
         m_TextIsScrolling = false;

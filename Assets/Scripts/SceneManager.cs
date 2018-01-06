@@ -36,14 +36,14 @@ public class SceneManager : MonoBehaviour
     }
 
     // Lookup a background sprite in the background sprites dictionnary and display it as the current background
-    void changeBackgroundSprite(string backgroundName)
+    public void changeBackgroundSprite(string backgroundName)
     {
         Sprite sprite = m_BackgroundsDictionnary[backgroundName];
         m_BackgroundImage.sprite = sprite;
     }
 
     // Lookup a character sprite in the character sprites dictionnary and display it as the current character
-    void changeCharacterSprite(string characterName, int mood)
+    public void changeCharacterSprite(string characterName, int mood = 0)
     {
         Sprite sprite = m_CharactersDictionnary[characterName][mood];
         m_CharacterImage.sprite = sprite;
