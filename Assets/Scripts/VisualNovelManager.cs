@@ -22,7 +22,7 @@ public class VisualNovelManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-         // Check if a save exist
+        // Check if a save exist
         if (false)
         {
 
@@ -38,14 +38,12 @@ public class VisualNovelManager : MonoBehaviour
     // Go to the given node in the given document
     void Load(string documentName, int nodeIndex)
     {
-       
-        Debug.Log(documentName);
         m_CurrentXmlDocument.LoadXml((Resources.Load(documentName) as TextAsset).text);
         m_CurrentNodeIndex = nodeIndex;
     }
 
     // Read the next node in the current XML document
-    void Next()
+    public void Next()
     {
         if (DialogueBoxManager.instance.IsTextScrolling())
         {
@@ -64,6 +62,8 @@ public class VisualNovelManager : MonoBehaviour
         string XPath = "/dialogue/*[" + m_CurrentNodeIndex + "]";
         m_CurrentNode = m_CurrentXmlDocument.SelectSingleNode(XPath);
         XmlNode tempNode = m_CurrentNode;
+
+
 
         switch (tempNode.Name)
         {
@@ -104,7 +104,10 @@ public class VisualNovelManager : MonoBehaviour
 
                 tempNode = m_CurrentNode;
 
+                DialogueBoxManager.instance.DisplayNewLine(tempNode.InnerText);
 
+
+                // Todo: display dialogue
                 break;
             default:
                 break;
