@@ -111,10 +111,18 @@ public class VisualNovelManager : MonoBehaviour
                 break;
             case "choices":
                 List<string> texts = new List<string>();
-                List<object> lambdas = new List<object>();
+                List<UnityEngine.Events.UnityAction> lambdas = new List<UnityEngine.Events.UnityAction>();
+               
                 foreach (XmlNode choiceNode in m_CurrentNode.ChildNodes)
                 {
                     texts.Add(choiceNode.InnerText);
+
+                    UnityEngine.Events.UnityAction lambda = delegate 
+                    {
+                        Load(choiceNode.Attributes["file"].InnerText, 1);
+                        ReadNode();
+                    };
+                    lambdas.Add(lambda);
                 }
 
                 ChoiceManager.instance.displayChoiceButtons(texts, lambdas);

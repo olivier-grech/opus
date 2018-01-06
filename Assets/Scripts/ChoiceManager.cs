@@ -29,7 +29,7 @@ public class ChoiceManager : MonoBehaviour
 
     }
 
-	public void displayChoiceButtons(List<string> texts, List<object> lambdas)
+	public void displayChoiceButtons(List<string> texts, List<UnityEngine.Events.UnityAction> lambdas)
     {
         for (int i = 0; i < texts.Count; i++)
         {
@@ -39,6 +39,8 @@ public class ChoiceManager : MonoBehaviour
             Text choiceButtonText = choiceButton.GetComponentInChildren<Text>();
             choiceButtonText.text = texts[i];
 
+            Button choiceButtonButton = choiceButton.GetComponentInChildren<Button>();
+            choiceButtonButton.onClick.AddListener(lambdas[i]);
         }
 
 	}

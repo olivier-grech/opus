@@ -5,7 +5,7 @@
     <line character="Kou">1.3 - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</line>
     <line>1.4 - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</line>
     <choices>
-        <choice>Go to 2.1</choice>
-        <choice>Go to 3.1</choice>
+        <choice file="file2">Go to 2.1</choice>
+        <choice file="file3">Go to 3.1</choice>
     </choices>
 </dialogue>
