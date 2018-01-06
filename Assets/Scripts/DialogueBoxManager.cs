@@ -20,15 +20,16 @@ public class DialogueBoxManager : MonoBehaviour
     void Awake()
     {
         instance = this;
-
         m_TextIsScrolling = false;
+
+        m_NamePlateName = m_NamePlate.GetComponentInChildren<Text>();
+        m_TextBoxText = m_TextBox.GetComponentInChildren<Text>();
     }
 
     // Use this for initialization
     void Start()
     {
-        m_NamePlateName = m_NamePlate.GetComponentInChildren<Text>();
-        m_TextBoxText = m_TextBox.GetComponentInChildren<Text>();
+
     }
 
     public void ChangeNamePlateName(string name)
@@ -92,7 +93,7 @@ public class DialogueBoxManager : MonoBehaviour
 
     public bool IsTextScrolling()
     {
-      return m_TextIsScrolling;
+        return m_TextIsScrolling;
     }
 
     // If the text is still scrolling, instantly display the end of the line

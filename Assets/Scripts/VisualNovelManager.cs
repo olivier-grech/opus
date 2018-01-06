@@ -8,7 +8,7 @@ public class VisualNovelManager : MonoBehaviour
     [HideInInspector] public static VisualNovelManager instance;
 
     // Used to navigate through a XML document
-    public XmlDocument m_StartingXmlDocument;
+    public string m_StartingXmlDocumentName;
     private XmlDocument m_CurrentXmlDocument;
     private XmlNode m_CurrentNode;
     private int m_CurrentNodeIndex;
@@ -16,6 +16,7 @@ public class VisualNovelManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+        m_CurrentXmlDocument = new XmlDocument();
     }
 
     // Use this for initialization
@@ -28,16 +29,18 @@ public class VisualNovelManager : MonoBehaviour
         }
         else
         {
-            Load(m_StartingXmlDocument, 1);
+            Load(m_StartingXmlDocumentName, 1);
         }
 
-        ReadNode();
+        ReadNode(firstTime: true);
     }
 
     // Go to the given node in the given document
-    void Load(XmlDocument document, int nodeIndex)
+    void Load(string documentName, int nodeIndex)
     {
-        m_CurrentXmlDocument = document;
+       
+        Debug.Log(documentName);
+        m_CurrentXmlDocument.LoadXml((Resources.Load(documentName) as TextAsset).text);
         m_CurrentNodeIndex = nodeIndex;
     }
 

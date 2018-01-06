@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 472433890}
   - component: {fileID: 472433891}
   m_Layer: 0
-  m_Name: Game Manager
+  m_Name: Visual Novel Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -213,9 +213,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 472433889}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 274e1f0cca1d5a4459506d07933e7b99, type: 3}
+  m_Script: {fileID: 11500000, guid: 8073b1466d601b94086c89ea47e215d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_StartingXmlDocumentName: file1
 --- !u!1 &501840635
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,6 +751,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f3ea296ab86a54bbe41613da4a516b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_NamePlate: {fileID: 996942949}
+  m_TextBox: {fileID: 501840635}
 --- !u!4 &1678042702
 Transform:
   m_ObjectHideFlags: 0
