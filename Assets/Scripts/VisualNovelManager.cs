@@ -119,6 +119,7 @@ public class VisualNovelManager : MonoBehaviour
 
                     UnityEngine.Events.UnityAction lambda = delegate 
                     {
+                        ChoiceManager.instance.clearChoiceButtons();
                         Load(choiceNode.Attributes["file"].InnerText, 1);
                         ReadNode();
                     };

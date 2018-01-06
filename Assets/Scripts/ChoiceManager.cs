@@ -44,4 +44,11 @@ public class ChoiceManager : MonoBehaviour
         }
 
 	}
+
+    public void clearChoiceButtons()
+    {
+        foreach (Transform child in m_ChoiceButtonsHolder.transform) {
+            GameObject.Destroy(child.gameObject);
+        }
+    }
 }
