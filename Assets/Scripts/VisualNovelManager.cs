@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Xml;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class VisualNovelManager : MonoBehaviour
 {
-    [HideInInspector] public static GameManager instance;
+    [HideInInspector] public static VisualNovelManager instance;
 
     // Used to navigate through a XML document
     public XmlDocument m_StartingXmlDocument;
