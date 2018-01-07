@@ -52,10 +52,9 @@ public class BacklogManager : MonoBehaviour
         float height = m_BacklogTextWrapperPrefab.GetComponent<RectTransform>().rect.height;
    
         RectTransform rt = m_BacklogContent.GetComponent<RectTransform>();
-        //Debug.Log(rt.rect.width);
-        rt.rect.Set(x: rt.rect.x, y: rt.rect.y, width: rt.rect.width, height: height * m_BacklogLines.Count);
-        //rt.sizeDelta = new Vector2(rt.rect.width, height * m_BacklogLines.Count);
-        //Debug.Log(rt.rect.width);
+        
+        //rt.rect.Set(x: rt.rect.x, y: rt.rect.y, width: rt.rect.width, height: height * m_BacklogLines.Count);
+        rt.sizeDelta = new Vector2(rt.rect.width, height * m_BacklogLines.Count);
     }
 
     public void DisplayBacklog()
