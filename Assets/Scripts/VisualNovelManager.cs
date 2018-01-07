@@ -105,6 +105,7 @@ public class VisualNovelManager : MonoBehaviour
                 tempNode = m_CurrentNode;
 
                 DialogueBoxManager.instance.DisplayNewLine(tempNode.InnerText);
+                BacklogManager.instance.AddLineToBackLog(tempNode.InnerText);
 
 
                 // Todo: display dialogue
