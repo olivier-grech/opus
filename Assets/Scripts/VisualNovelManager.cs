@@ -10,6 +10,7 @@ public class VisualNovelManager : MonoBehaviour
     // Used to navigate through a XML document
     public string m_StartingXmlDocumentName;
     private XmlDocument m_CurrentXmlDocument;
+    private string m_CurrentXmlDocumentName;
     private XmlNode m_CurrentNode;
     private int m_CurrentNodeIndex;
 
@@ -22,16 +23,10 @@ public class VisualNovelManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        // Check if a save exist
-        if (false)
-        {
+        if (Game.current == null)
+            Game.current = new Game();
 
-        }
-        else
-        {
-            Load(m_StartingXmlDocumentName, 1);
-        }
-
+        Load(Game.current.fileName, Game.current.nodeIndex);
         ReadNode(firstTime: true);
     }
 
@@ -39,6 +34,7 @@ public class VisualNovelManager : MonoBehaviour
     void Load(string documentName, int nodeIndex)
     {
         m_CurrentXmlDocument.LoadXml((Resources.Load(documentName) as TextAsset).text);
+        m_CurrentXmlDocumentName = documentName;
         m_CurrentNodeIndex = nodeIndex;
     }
 
@@ -62,8 +58,6 @@ public class VisualNovelManager : MonoBehaviour
         string XPath = "/dialogue/*[" + m_CurrentNodeIndex + "]";
         m_CurrentNode = m_CurrentXmlDocument.SelectSingleNode(XPath);
         XmlNode tempNode = m_CurrentNode;
-
-
 
         switch (tempNode.Name)
         {
@@ -104,7 +98,7 @@ public class VisualNovelManager : MonoBehaviour
 
                 tempNode = m_CurrentNode;
 
-                DialogueBoxManager.instance.DisplayNewLine(tempNode.InnerText);
+                DialogueBoxManager.instance.DisplayNewLine(tempNode.InnerText, SettingsManager.instance.GetNumberOfFramesBetweenLetters());
                 BacklogManager.instance.AddLineToBackLog(tempNode.InnerText);
 
 
@@ -133,6 +127,16 @@ public class VisualNovelManager : MonoBehaviour
                 break;
 
         }
+    }
+
+    public int GetCurrentNodeIndex()
+    {
+        return m_CurrentNodeIndex;
+    }
+
+    public string GetCurrentDocumentName()
+    {
+        return m_CurrentXmlDocumentName;
     }
 
 

@@ -16,6 +16,7 @@ public class DialogueBoxManager : MonoBehaviour
     private bool m_TextIsScrolling;
     private Coroutine m_ScrollingTextCoroutine;
     private string m_CurrentLine;
+    private float m_CurrentNumberOfFramesBetweenLetters;
 
     void Awake()
     {
@@ -37,15 +38,16 @@ public class DialogueBoxManager : MonoBehaviour
         m_NamePlateName.text = name;
     }
 
-    public void DisplayNewLine(string line)
+    public void DisplayNewLine(string line, float numberOfFramesBetweenLetters)
     {
         m_CurrentLine = line;
+        m_CurrentNumberOfFramesBetweenLetters = numberOfFramesBetweenLetters;
         m_ScrollingTextCoroutine = StartCoroutine(StartScrollingText());
     }
 
     private IEnumerator StartScrollingText()
     {
-        float numberOfFramesBetweenLetters = 2.0f; // = m_SettingsManager.GetNumberOfFramesBetweenLetters();
+        float numberOfFramesBetweenLetters = m_CurrentNumberOfFramesBetweenLetters;
         int numberOfLettersToDisplayAtOnce;
 
         if (numberOfFramesBetweenLetters == 0)

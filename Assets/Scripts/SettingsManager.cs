@@ -8,7 +8,7 @@ public class SettingsManager : MonoBehaviour
 
     [HideInInspector] public static SettingsManager instance;
 
-    public GameObject m_Page;
+    public GameObject m_Canvas;
 
     public enum TEXT_SPEED {VERY_SLOW, SLOW, NORMAL, FAST, VERY_FAST, INSTANT}
 
@@ -24,6 +24,7 @@ public class SettingsManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+        DontDestroyOnLoad(this);
         
         m_TextSpeedSlider = m_TextSpeed.GetComponentInChildren<Slider>();
         m_TextSpeedValue = m_TextSpeed.GetComponentInChildren<Text>();
@@ -43,13 +44,13 @@ public class SettingsManager : MonoBehaviour
        // Display the settings page
     public void DisplayPage()
     {
-        m_Page.SetActive(true);
+        m_Canvas.SetActive(true);
     }
 
     // Hide the settings page as well as the extra menu
     public void HidePage()
     {
-        m_Page.SetActive(false);
+        m_Canvas.SetActive(false);
         // TODO: hide the extra menu
     }
 
@@ -95,5 +96,10 @@ public class SettingsManager : MonoBehaviour
     public string GetTextSpeedName()
     {
         return m_TextSpeedName;
+    }
+
+    public float GetNumberOfFramesBetweenLetters()
+    {
+        return m_NumberOfFramesBetweenLetters;
     }
 }
