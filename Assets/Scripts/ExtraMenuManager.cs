@@ -25,6 +25,11 @@ public class ExtraMenuManager : MonoBehaviour
         SettingsManager.instance.DisplayPage();
     }
 
+    public void Quit()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Title");
+    }
+
     public void DisplayExtraMenu()
     {
         m_ExtraMenu.SetActive(true);
