@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /* Author: Olivier Grech
- * This class provides methods binded to the buttons of the extra menu
+ * This class provides methods binded to the user buttons
  */
 
-public class ExtraMenuManager : MonoBehaviour
+public class UserButtonsManager : MonoBehaviour
 {
-    public GameObject m_ExtraMenu;
-
     public void Save()
     {
         SavesManager.instance.DisplayPage(SavesManager.SAVE_CONTEXT.SAVE);
@@ -28,15 +26,5 @@ public class ExtraMenuManager : MonoBehaviour
     public void Quit()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Title");
-    }
-
-    public void DisplayExtraMenu()
-    {
-        m_ExtraMenu.SetActive(true);
-    }
-
-    public void HideExtraMenu()
-    {
-        m_ExtraMenu.SetActive(false);
     }
 }
