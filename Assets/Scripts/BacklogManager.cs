@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BacklogManager : Page
 {
-	[HideInInspector] public static BacklogManager instance;
+    [HideInInspector] public static BacklogManager instance;
 
     public GameObject m_BacklogContent;
 
@@ -20,8 +20,8 @@ public class BacklogManager : Page
         if (instance == null)
             instance = this;
         else if (instance != this)
-            Destroy(gameObject);  
-		
+            Destroy(gameObject);
+
         DontDestroyOnLoad(this);
 
         m_BacklogLines = new Queue<string>();
@@ -62,7 +62,7 @@ public class BacklogManager : Page
     public override void DisplayPage()
     {
         ClearBacklog();
-		GenerateBackLog();
+        GenerateBackLog();
         base.DisplayPage();
     }
 }
