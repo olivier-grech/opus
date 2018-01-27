@@ -6,7 +6,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
 
-public class SavesManager : MonoBehaviour
+public class SavesManager : Page
 {
 
     [HideInInspector] public static SavesManager instance;
@@ -15,15 +15,15 @@ public class SavesManager : MonoBehaviour
     public enum SAVE_CONTEXT {SAVE, LOAD} 
 	private SAVE_CONTEXT m_SaveContext;
 
-    public GameObject m_Canvas;
 	public GameObject m_ContextIndicator;
 	public GameObject m_SavesFilesList;
 
 	private Game m_GameToLoad;
     private static Game[] m_SavedGames;
 
-    void Awake()
+    public override void Awake()
     {
+        base.Awake();
         instance = this;
         DontDestroyOnLoad(this);
 
@@ -45,8 +45,6 @@ public class SavesManager : MonoBehaviour
 
     }
 
-
-
 	public void Load(int index)
     {
     	Game.current = m_SavedGames[index];
@@ -59,9 +57,9 @@ public class SavesManager : MonoBehaviour
     }
 	*/
 
-	 public void DisplayPage(SAVE_CONTEXT saveContext)
+	public void DisplayPage(SAVE_CONTEXT saveContext)
     {
-        m_Canvas.SetActive(true);
+        
 		m_SaveContext = saveContext;
 
 		if (m_SaveContext == SAVE_CONTEXT.SAVE)
@@ -99,15 +97,11 @@ public class SavesManager : MonoBehaviour
             }
            
         }
+        base.DisplayPage();
     }
 
 
-    // Hide the settings page as well as the extra menu
-    public void HidePage()
-    {
-        m_Canvas.SetActive(false);
-        // TODO: hide the extra menu
-    }
+
 
 	// Update he button corresponding to a given save file
     // TODO: this is temporary, we should decide what to display on a save file
