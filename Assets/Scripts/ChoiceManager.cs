@@ -13,20 +13,10 @@ public class ChoiceManager : MonoBehaviour
 
     void Awake()
     {
-        instance = this;
-    }
-
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);  
     }
 
 	public void displayChoiceButtons(List<string> texts, List<UnityEngine.Events.UnityAction> lambdas)

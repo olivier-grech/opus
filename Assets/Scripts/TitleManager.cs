@@ -11,7 +11,10 @@ public class TitleManager : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        instance = this;
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);  
     }
 
 	public void NewGame()

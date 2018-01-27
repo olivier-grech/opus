@@ -93,8 +93,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0, g: 0, b: 0, a: 0.92156863}
-    m_HighlightedColor: {r: 0.05882353, g: 0.05882353, b: 0.05882353, a: 0.92156863}
-    m_PressedColor: {r: 0, g: 0, b: 0, a: 0.92156863}
+    m_HighlightedColor: {r: 0.039215688, g: 0.039215688, b: 0.039215688, a: 0.8039216}
+    m_PressedColor: {r: 0.039215688, g: 0.039215688, b: 0.039215688, a: 0.8039216}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -113,7 +113,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_MethodName: DisplayBacklog
+        m_MethodName: Backlog
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -144,7 +144,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: e1d6259260452384688d2c4cbcb5cb68, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 18e148931f5e8a242a573d4ec8583bea, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

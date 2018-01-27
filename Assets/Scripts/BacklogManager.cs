@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BacklogManager : MonoBehaviour
+public class BacklogManager : Page
 {
-	[HideInInspector] public static BacklogManager instance;
+    [HideInInspector] public static BacklogManager instance;
 
-
-    public GameObject m_Backlog;
     public GameObject m_BacklogContent;
 
     public GameObject m_BacklogTextWrapperPrefab;
@@ -16,9 +14,16 @@ public class BacklogManager : MonoBehaviour
     private Queue<string> m_BacklogLines;
     public int m_MaxNumberOfLinesInBacklog = 10;
 
-    void Awake()
+    public override void Awake()
     {
-		instance = this;
+        base.Awake();
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);
+
+        DontDestroyOnLoad(this);
+
         m_BacklogLines = new Queue<string>();
     }
 
@@ -50,22 +55,14 @@ public class BacklogManager : MonoBehaviour
 
         // Set the overall height
         float height = m_BacklogTextWrapperPrefab.GetComponent<RectTransform>().rect.height;
-   
         RectTransform rt = m_BacklogContent.GetComponent<RectTransform>();
-        
-        //rt.rect.Set(x: rt.rect.x, y: rt.rect.y, width: rt.rect.width, height: height * m_BacklogLines.Count);
-        rt.sizeDelta = new Vector2(rt.rect.width, height * m_BacklogLines.Count);
+        rt.sizeDelta = new Vector2(0, height * m_BacklogLines.Count);
     }
 
-    public void DisplayBacklog()
+    public override void DisplayPage()
     {
         ClearBacklog();
-		GenerateBackLog();
-        m_Backlog.SetActive(true);
-    }
-
-    public void HideBacklog()
-    {
-        m_Backlog.SetActive(false);
+        GenerateBackLog();
+        base.DisplayPage();
     }
 }

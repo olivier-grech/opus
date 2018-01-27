@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SettingsManager : MonoBehaviour
+public class SettingsManager : Page
 {
-
     [HideInInspector] public static SettingsManager instance;
-
-    public GameObject m_Canvas;
 
     public enum TEXT_SPEED {VERY_SLOW, SLOW, NORMAL, FAST, VERY_FAST, INSTANT}
 
@@ -21,9 +18,13 @@ public class SettingsManager : MonoBehaviour
     private float m_NumberOfFramesBetweenLetters;
     private string m_TextSpeedName;
 
-    void Awake()
+    public override void Awake()
     {
-        instance = this;
+        base.Awake();
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);  
         DontDestroyOnLoad(this);
         
         m_TextSpeedSlider = m_TextSpeed.GetComponentInChildren<Slider>();
@@ -39,19 +40,6 @@ public class SettingsManager : MonoBehaviour
             TextSpeedChanged();
         });
         m_TextSpeedSlider.value = PlayerPrefs.GetInt("SettingScrollingTextSpeed", 1);
-    }
-
-       // Display the settings page
-    public void DisplayPage()
-    {
-        m_Canvas.SetActive(true);
-    }
-
-    // Hide the settings page as well as the extra menu
-    public void HidePage()
-    {
-        m_Canvas.SetActive(false);
-        // TODO: hide the extra menu
     }
 
     // A listener for the text scrolling speed slider

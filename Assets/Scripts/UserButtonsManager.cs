@@ -23,6 +23,11 @@ public class UserButtonsManager : MonoBehaviour
         SettingsManager.instance.DisplayPage();
     }
 
+    public void Backlog()
+    {
+        BacklogManager.instance.DisplayPage();
+    }
+
     public void Quit()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Title");
