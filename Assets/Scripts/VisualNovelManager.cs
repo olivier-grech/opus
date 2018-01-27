@@ -16,7 +16,10 @@ public class VisualNovelManager : MonoBehaviour
 
     void Awake()
     {
-        instance = this;
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);  
         m_CurrentXmlDocument = new XmlDocument();
     }
 

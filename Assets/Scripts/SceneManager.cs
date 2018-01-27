@@ -18,7 +18,10 @@ public class SceneManager : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        instance = this;
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);  
 
         // Load backgrounds dictionnary into a "real" dictionnary
         m_BackgroundsDictionnary = new Dictionary<string, Sprite>();

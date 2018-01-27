@@ -17,7 +17,11 @@ public class BacklogManager : Page
     public override void Awake()
     {
         base.Awake();
-		instance = this;
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);  
+		
         DontDestroyOnLoad(this);
 
         m_BacklogLines = new Queue<string>();

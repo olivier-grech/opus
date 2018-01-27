@@ -20,7 +20,10 @@ public class DialogueBoxManager : MonoBehaviour
 
     void Awake()
     {
-        instance = this;
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);  
         m_TextIsScrolling = false;
 
         m_NamePlateName = m_NamePlate.GetComponentInChildren<Text>();
