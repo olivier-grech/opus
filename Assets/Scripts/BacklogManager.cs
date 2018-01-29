@@ -51,6 +51,11 @@ public class BacklogManager : Page
             var textWrapper = GameObject.Instantiate(m_BacklogTextWrapperPrefab);
             textWrapper.GetComponentInChildren<Text>().text = line;
             textWrapper.transform.SetParent(m_BacklogContent.transform);
+
+            /* https://github.com/olivier-grech/opus/issues/3
+            The scale is 0 0 0 the first time the backlog is opened, for some reasons. Remove this line when the cause
+            is found. */
+            textWrapper.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f); 
         }
 
         // Set the overall height
